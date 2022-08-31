@@ -34,13 +34,15 @@ header li {
   transition-property: background-color, color;
   transition-duration: 300ms;
   transition-timing-function: ease-in-out;
-  padding: 1.5rem;
+  padding: 0.5rem;
+  margin: 1rem;
 }
 
 header li:hover,
 li.selected {
-  background-color: black;
-  color: white;
+  border-bottom: 5px solid black;
+  margin-bottom: calc(1rem - 5px);
+  border-radius: 5px;
 }
 
 footer {
