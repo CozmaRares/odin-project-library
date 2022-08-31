@@ -16,6 +16,7 @@ ul {
 
 body {
   background-color: var(--bg);
+  font-family: monospace;
 }
 
 header {
@@ -53,7 +54,7 @@ footer {
   background-color: var(--bg);
   text-align: center;
   margin-bottom: 1rem;
-  font-size: 1.3em;
+  font-size: 1rem;
 }
 
 footer a {
@@ -67,4 +68,12 @@ footer a i {
 
 footer a:hover i {
   transform: rotateX(360deg) rotateY(360deg) scale(1.2);
+}
+
+.legend th {
+  text-align: left;
+}
+
+.legend th:not(:last-child) {
+  border-right: 2px solid gray;
 }
