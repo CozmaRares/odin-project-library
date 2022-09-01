@@ -13,11 +13,19 @@ function loadBooks(booksData) {
 
   const grid = document.querySelector(".grid");
 
-  const statusOrder = ["cr", "c", "oh", "d", "ptr"];
+  const statusOrder = [
+    "currently reading",
+    "completed",
+    "on hold",
+    "dropped",
+    "plan to read"
+  ];
 
   let idx = 1;
 
   statusOrder.forEach(status => {
+    const statusClass = status.split(" ").join("-");
+
     books[status]
       .sort((a, b) => {
         let ta = a.title.toLowerCase(),
@@ -34,7 +42,7 @@ function loadBooks(booksData) {
       .forEach(({ title, author, pages }) => {
         grid.insertAdjacentHTML(
           "beforeend",
-          `<div class="line ${status}"></div>`
+          `<div class="line ${statusClass}"></div>`
         );
         grid.insertAdjacentHTML(
           "beforeend",

@@ -9,7 +9,30 @@
 }
 
 :root {
-  --bg: #e4e4e4;
+  --bg: #f4f4f4;
+  --header-bg: white;
+
+  --currently-reading: green;
+  --completed: blue;
+  --on-hold: yellow;
+  --dropped: crimson;
+  --plan-to-read: gray;
+  --status-color: black;
+}
+.currently-reading {
+  --status-color: var(--currently-reading);
+}
+.completed {
+  --status-color: var(--completed);
+}
+.on-hold {
+  --status-color: var(--on-hold);
+}
+.dropped {
+  --status-color: var(--dropped);
+}
+.plan-to-read {
+  --status-color: var(--plan-to-read);
 }
 
 ul {
@@ -22,8 +45,8 @@ body {
 }
 
 header {
-  --header-bg: white;
-
+  position: sticky;
+  top: 0;
   background-color: var(--header-bg);
   font-size: 1.5rem;
   box-shadow: 0 5px 5px gray;
@@ -47,7 +70,11 @@ header li {
 
 header li:hover,
 li.selected {
-  border-color: black;
+  border-color: var(--status-color);
+}
+
+main {
+  padding-bottom: 3rem;
 }
 
 .grid {
@@ -79,6 +106,10 @@ li.selected {
 
 .title {
   text-align: center;
+  font-size: 2em;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: var(--bg);
 }
 
 div.index {
@@ -91,20 +122,8 @@ div.index {
   margin-left: -2px;
 }
 
-.cr {
-  background-color: green;
-}
-.c {
-  background-color: blue;
-}
-.oh {
-  background-color: yellow;
-}
-.d {
-  background-color: crimson;
-}
-.ptr {
-  background-color: gray;
+.line:not(:first-of-type) {
+  background-color: var(--status-color);
 }
 
 footer {
@@ -112,8 +131,9 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
+  height: 2rem;
   background-color: var(--bg);
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   font-size: 1rem;
 }
 
