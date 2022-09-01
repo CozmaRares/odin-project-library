@@ -9,7 +9,7 @@
 }
 
 :root {
-  --bg: #f4f4f4;
+  --bg: #ececec;
   --header-bg: white;
 
   --currently-reading: green;
@@ -79,7 +79,7 @@ main {
 
 .grid {
   display: grid;
-  grid-template-columns: 5px auto repeat(2, 1fr) auto;
+  grid-template-columns: 7px auto repeat(2, 1fr) auto;
   width: 80%;
   margin: 0 auto;
   row-gap: 1rem;
