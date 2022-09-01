@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Harry Potter and the Philosopher's Stone",
+        "author": "J. K. Rowling",
+        "pages": "223",
+        "status": "c"
+    },
+    {
+        "title": "Harry Potter and the Chamber of Secrets",
+        "author": "J. K. Rowling",
+        "pages": "251",
+        "status": "c"
+    },
+    {
+        "title": "Harry Potter and the Prisoner of Azkaban",
+        "author": "J. K. Rowling",
+        "pages": "317",
+        "status": "c"
+    },
+    {
+        "title": "Harry Potter and the Goblet of Fire",
+        "author": "J. K. Rowling",
+        "pages": "636",
+        "status": "cr"
+    },
+    {
+        "title": "Harry Potter and the Order of the Phoenix",
+        "author": "J. K. Rowling",
+        "pages": "766",
+        "status": "oh"
+    },
+    {
+        "title": "Harry Potter and the Half-Blood Prince",
+        "author": "J. K. Rowling",
+        "pages": "607",
+        "status": "d"
+    },
+    {
+        "title": "Harry Potter and the Deathly Hallows",
+        "author": "J. K. Rowling",
+        "pages": "607",
+        "status": "ptr"
+    }
+]
