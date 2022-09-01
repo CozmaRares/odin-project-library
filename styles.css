@@ -52,20 +52,43 @@ li.selected {
 
 .grid {
   display: grid;
-  grid-template-columns: 5px auto repeat(3, 1fr);
+  grid-template-columns: 5px auto repeat(2, 1fr) auto;
+  width: 80%;
+  margin: 0 auto;
+  row-gap: 1rem;
+}
+
+.grid > div {
+  padding: 0.25rem 0;
+}
+
+.grid > div:not(.line) {
+  border-bottom: 1px solid gray;
 }
 
 .grid > div:not(.line, .index) {
   padding-left: 0.5rem;
 }
 
+.grid > div:nth-child(10n + 7),
+.grid > div:nth-child(10n + 8),
+.grid > div:nth-child(10n + 9),
+.grid > div:nth-child(10n + 10) {
+  background-color: white;
+}
+
 .title {
-  grid-column: 1 / -1;
   text-align: center;
+}
+
+div.index {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .border-l {
   border-left: 2px solid gray;
+  margin-left: -2px;
 }
 
 .cr {
