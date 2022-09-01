@@ -62,7 +62,7 @@ header li {
   transition: border-color 300ms ease-in-out;
   padding: 0.5rem;
   margin: 1rem;
-  border-bottom: 5px solid var(--header-bg);
+  border-bottom: 5px solid var(--status-color);
   margin-bottom: calc(1rem - 5px);
   border-radius: 5px;
   cursor: pointer;
@@ -70,7 +70,7 @@ header li {
 
 header li:hover,
 li.selected {
-  border-color: var(--status-color);
+  border-color: var(--header-bg);
 }
 
 main {
@@ -83,6 +83,7 @@ main {
   width: 80%;
   margin: 0 auto;
   row-gap: 1rem;
+  font-size: 1.2em;
 }
 
 .grid > div {
@@ -107,9 +108,16 @@ main {
 .title {
   text-align: center;
   font-size: 2em;
-  margin-top: 1rem;
+  margin: 2rem 0;
   padding-bottom: 1rem;
   background-color: var(--bg);
+  text-transform: capitalize;
+}
+
+.line:not(:first-of-type) {
+  background-color: var(--status-color);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 div.index {
@@ -117,13 +125,15 @@ div.index {
   padding-right: 0.5rem;
 }
 
+div.pages {
+  text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .border-l {
   border-left: 2px solid gray;
   margin-left: -2px;
-}
-
-.line:not(:first-of-type) {
-  background-color: var(--status-color);
 }
 
 footer {

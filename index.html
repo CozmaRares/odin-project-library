@@ -10,12 +10,14 @@
   <body>
     <header>
       <ul>
-        <li class="selected">All Books</li>
-        <li class="currently-reading">Currently Reading</li>
-        <li class="completed">Completed</li>
-        <li class="on-hold">On Hold</li>
-        <li class="dropped">Dropped</li>
-        <li class="plan-to-read">Plan to Read</li>
+        <li onclick="filterBooks(this)" class="selected">All Books</li>
+        <li onclick="filterBooks(this)" class="currently-reading">
+          Currently Reading
+        </li>
+        <li onclick="filterBooks(this)" class="completed">Completed</li>
+        <li onclick="filterBooks(this)" class="on-hold">On Hold</li>
+        <li onclick="filterBooks(this)" class="dropped">Dropped</li>
+        <li onclick="filterBooks(this)" class="plan-to-read">Plan to Read</li>
       </ul>
     </header>
     <main>
@@ -25,7 +27,7 @@
         <div class="index">#</div>
         <div class="border-l">Title</div>
         <div class="border-l">Author</div>
-        <div class="border-l">Pages</div>
+        <div class="pages border-l">Pages</div>
       </div>
     </main>
     <footer>
