@@ -247,7 +247,7 @@ footer a:hover svg {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  width: 300px;
+  width: 400px;
   padding: 2rem;
   text-align: center;
   border-radius: 20px;
@@ -293,6 +293,7 @@ footer a:hover svg {
   padding: 20px;
   border-radius: 20px;
 }
+
 .modal button {
   outline: 1px solid var(--color);
   width: 60%;
@@ -309,6 +310,7 @@ footer a:hover svg {
 .custom-select {
   --border-radius: 20px;
 
+  width: 100%;
   position: relative;
   display: inline-block;
   vertical-align: middle;
