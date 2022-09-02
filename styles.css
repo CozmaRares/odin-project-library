@@ -87,7 +87,8 @@ main {
 }
 
 .grid > div {
-  padding: 0.25rem 0;
+  padding-top:    0.35rem;
+  padding-bottom: 0.35rem;
 }
 
 .grid > div:not(.line) {
