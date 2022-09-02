@@ -1,4 +1,5 @@
-let books = {};
+let books = {},
+  maxID;
 
 function loadBooks(booksData) {
   booksData.forEach(book => {
@@ -8,6 +9,8 @@ function loadBooks(booksData) {
     if (books[book.status] === undefined) books[book.status] = [newBook];
     else books[book.status].push(newBook);
   });
+
+  maxID = booksData.length;
 
   displayAllBooks();
 }
@@ -103,3 +106,30 @@ function edit(bookID, bookStatus) {
 function toggleOverlay() {
   document.querySelector(".overlay").classList.toggle("active");
 }
+
+document.querySelector(".overlay form").onsubmit = event => {
+  event.preventDefault();
+  console.log();
+  console.log();
+  console.log();
+  console.log();
+
+  const title = event.target.title.value,
+    author = event.target.author.value,
+    pages = event.target.pages.value,
+    status = event.target.status.value;
+
+  const book = { title, author, pages, id: ++maxID };
+
+  books[status].push(book);
+
+  // refresh grid
+  document.querySelector("header li.selected").click();
+
+  toggleOverlay();
+
+  event.target.title.value = "";
+  event.target.author.value = "";
+  event.target.pages.value = "";
+  event.target.status.value = document.querySelector('.overlay form select option:first-child').innerText;
+};
