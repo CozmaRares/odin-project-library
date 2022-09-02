@@ -62,7 +62,7 @@ function fillGrid(booksArr, status, statusClass, idx) {
       <div>${author}</div>
       <div class="pages">
         ${pages}
-        <div class="edit" onclick="edit(${id}, '${status}')">
+        <div class="edit" onclick="openEditModal(${id}, '${status}')">
           <svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
           </svg>
@@ -99,20 +99,34 @@ function displayBooksByStatus(status, statusClass) {
   fillGrid(books[status], status, statusClass, 1);
 }
 
-function edit(bookID, bookStatus) {
-  console.log(books[bookStatus].find(({ id }) => id === bookID));
+function openEditModal(bookID, bookStatus) {
+  const { title, author, pages } = books[bookStatus].find(
+    book => book.id === bookID
+  );
+
+  document.getElementById("title").value = title;
+  document.getElementById("author").value = author;
+  document.getElementById("pages").value = pages;
+  document.getElementById("status").value = bookStatus;
+
+  document.querySelector(".overlay form").onsubmit = event => {
+    removeBook(bookID, bookStatus);
+    addBook(event);
+  };
+  toggleOverlay();
+}
+
+function openAddModal() {
+  document.querySelector(".overlay form").onsubmit = addBook;
+  toggleOverlay();
 }
 
 function toggleOverlay() {
   document.querySelector(".overlay").classList.toggle("active");
 }
 
-document.querySelector(".overlay form").onsubmit = event => {
+function addBook(event) {
   event.preventDefault();
-  console.log();
-  console.log();
-  console.log();
-  console.log();
 
   const title = event.target.title.value,
     author = event.target.author.value,
@@ -131,5 +145,13 @@ document.querySelector(".overlay form").onsubmit = event => {
   event.target.title.value = "";
   event.target.author.value = "";
   event.target.pages.value = "";
-  event.target.status.value = document.querySelector('.overlay form select option:first-child').innerText;
-};
+  event.target.status.value = document.querySelector(
+    ".overlay form select option:first-child"
+  ).innerText;
+}
+
+function removeBook(bookID, bookStatus) {
+  books[bookStatus] = books[bookStatus].filter(book => {
+    return book.id !== bookID;
+  });
+}
