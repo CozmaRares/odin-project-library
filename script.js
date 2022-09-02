@@ -93,7 +93,6 @@ function displayAllBooks() {
 
 function displayBooksByStatus(status, statusClass) {
   document.querySelector(".title").innerText = status;
-
   fillGrid(books[status], status, statusClass, 1);
 }
 

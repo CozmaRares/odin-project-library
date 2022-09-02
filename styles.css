@@ -50,6 +50,7 @@ header {
   background-color: var(--header-bg);
   font-size: 1.5rem;
   box-shadow: 0 5px 5px gray;
+  z-index: 1;
 }
 
 header ul {
@@ -155,6 +156,19 @@ div.pages {
 .border-l {
   border-left: 2px solid gray;
   margin-left: -2px;
+}
+
+.plus svg {
+  height: 2em;
+  position: fixed;
+  bottom: 3rem;
+  right: 2%;
+  cursor: pointer;
+  transition: transform 300ms ease-in-out;
+}
+
+.plus svg:hover {
+  transform: rotate(405deg);
 }
 
 footer {
