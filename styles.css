@@ -138,14 +138,18 @@ div.pages {
   top: 50%;
   left: 100%;
   transform: translateY(-50%);
-  opacity: 1;
+  opacity: 0;
   transition: 300ms ease-in-out;
+  padding: 0.5rem;
+  cursor: pointer;
+  pointer-events: none;
 }
 
 .grid > div:hover + .pages .edit,
 .pages:hover .edit {
   opacity: 1;
   transform: translateY(-50%) rotate(360deg);
+  pointer-events: initial;
 }
 
 .border-l {
