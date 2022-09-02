@@ -113,11 +113,19 @@ function openEditModal(bookID, bookStatus) {
     removeBook(bookID, bookStatus);
     addBook(event);
   };
+  document.getElementById("delete-btn").style.display = "block";
+  document.getElementById("delete-btn").onclick = () => {
+    removeBook(bookID, bookStatus);
+    closeOverlay();
+  };
+
   toggleOverlay();
 }
 
 function openAddModal() {
   document.querySelector(".overlay form").onsubmit = addBook;
+  document.getElementById("delete-btn").style.display = "none";
+
   toggleOverlay();
 }
 
@@ -137,17 +145,20 @@ function addBook(event) {
 
   books[status].push(book);
 
+  closeOverlay();
+}
+
+function closeOverlay() {
   // refresh grid
   document.querySelector("header li.selected").click();
 
   toggleOverlay();
 
-  event.target.title.value = "";
-  event.target.author.value = "";
-  event.target.pages.value = "";
-  event.target.status.value = document.querySelector(
-    ".overlay form select option:first-child"
-  ).innerText;
+  document.getElementById("title").value = "";
+  document.getElementById("author").value = "";
+  document.getElementById("pages").value = "";
+  document.getElementById("status").value =
+    document.querySelector("#status option").value;
 }
 
 function removeBook(bookID, bookStatus) {
