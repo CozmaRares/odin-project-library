@@ -87,7 +87,7 @@ main {
 }
 
 .grid > div {
-  padding-top:    0.35rem;
+  padding-top: 0.35rem;
   padding-bottom: 0.35rem;
 }
 
@@ -130,6 +130,22 @@ div.pages {
   text-align: center;
   padding-left: 1rem;
   padding-right: 1rem;
+  position: relative;
+}
+
+.edit {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  opacity: 1;
+  transition: 300ms ease-in-out;
+}
+
+.grid > div:hover + .pages .edit,
+.pages:hover .edit {
+  opacity: 1;
+  transform: translateY(-50%) rotate(360deg);
 }
 
 .border-l {

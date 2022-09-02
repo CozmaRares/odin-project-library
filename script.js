@@ -2,8 +2,6 @@ let books = {};
 
 function loadBooks(booksData) {
   booksData.forEach(book => {
-    // debugger;
-
     const newBook = { ...book }; // copy the book data
     delete newBook.status;
 
@@ -48,10 +46,34 @@ function refreshGrid() {
   `;
 }
 
+function fillGrid(booksArr, status, statusClass, idx) {
+  const grid = document.querySelector(".grid");
+
+  booksArr.forEach(({ id, title, author, pages }) => {
+    grid.insertAdjacentHTML(
+      "beforeend",
+      `
+      <div class="line ${statusClass}"></div>
+      <div class="index">${idx++}</div>
+      <div>${title}</div>
+      <div>${author}</div>
+      <div class="pages">
+        ${pages}
+        <div class="edit" onclick="edit(${id}, '${status}')">
+          <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+          </svg>
+        </div>
+      </div>
+      `
+    );
+  });
+
+  return idx;
+}
+
 function displayAllBooks() {
   document.querySelector(".title").innerText = "All Books";
-
-  const grid = document.querySelector(".grid");
 
   const statusOrder = [
     "currently reading",
@@ -65,36 +87,16 @@ function displayAllBooks() {
 
   statusOrder.forEach(status => {
     const statusClass = status.split(" ").join("-");
-
-    books[status].forEach(({ title, author, pages }) => {
-      grid.insertAdjacentHTML(
-        "beforeend",
-        `<div class="line ${statusClass}"></div>`
-      );
-      grid.insertAdjacentHTML("beforeend", `<div class="index">${idx++}</div>`);
-      grid.insertAdjacentHTML("beforeend", `<div>${title}</div>`);
-      grid.insertAdjacentHTML("beforeend", `<div>${author}</div>`);
-      grid.insertAdjacentHTML("beforeend", `<div class="pages">${pages}</div>`);
-    });
+    idx = fillGrid(books[status], status, statusClass, idx);
   });
 }
 
 function displayBooksByStatus(status, statusClass) {
   document.querySelector(".title").innerText = status;
 
-  const grid = document.querySelector(".grid");
+  fillGrid(books[status], status, statusClass, 1);
+}
 
-  let idx = 1;
-
-  debugger;
-  books[status].forEach(({ title, author, pages }) => {
-    grid.insertAdjacentHTML(
-      "beforeend",
-      `<div class="line ${statusClass}"></div>`
-    );
-    grid.insertAdjacentHTML("beforeend", `<div class="index">${idx++}</div>`);
-    grid.insertAdjacentHTML("beforeend", `<div>${title}</div>`);
-    grid.insertAdjacentHTML("beforeend", `<div>${author}</div>`);
-    grid.insertAdjacentHTML("beforeend", `<div class="pages">${pages}</div>`);
-  });
+function edit(bookID, bookStatus) {
+  console.log(books[bookStatus].find(({ id }) => id === bookID));
 }

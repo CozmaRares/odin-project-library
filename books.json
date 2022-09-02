@@ -1,41 +1,48 @@
 [
     {
+        "id": 1,
         "title": "Harry Potter and the Philosopher's Stone",
         "author": "J. K. Rowling",
         "pages": "223",
         "status": "completed"
     },
     {
+        "id": 2,
         "title": "Harry Potter and the Chamber of Secrets",
         "author": "J. K. Rowling",
         "pages": "251",
         "status": "completed"
     },
     {
+        "id": 3,
         "title": "Harry Potter and the Prisoner of Azkaban",
         "author": "J. K. Rowling",
         "pages": "317",
         "status": "completed"
     },
     {
+        "id": 4,
         "title": "Harry Potter and the Goblet of Fire",
         "author": "J. K. Rowling",
         "pages": "636",
         "status": "currently reading"
     },
     {
+        "id": 5,
         "title": "Harry Potter and the Order of the Phoenix",
         "author": "J. K. Rowling",
         "pages": "766",
         "status": "on hold"
     },
     {
+        "id": 6,
         "title": "Harry Potter and the Half-Blood Prince",
         "author": "J. K. Rowling",
         "pages": "607",
         "status": "dropped"
     },
     {
+        "id": 7,
         "title": "Harry Potter and the Deathly Hallows",
         "author": "J. K. Rowling",
         "pages": "607",
