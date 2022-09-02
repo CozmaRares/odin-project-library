@@ -29,7 +29,7 @@
         <div class="border-l">Author</div>
         <div class="pages border-l">Pages</div>
       </div>
-      <div class="plus">
+      <div class="plus" onclick="toggleOverlay()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
           <!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
           <path
@@ -54,5 +54,44 @@
         </svg>
       </a>
     </footer>
+    <div class="overlay">
+      <div class="modal">
+        <form>
+          <h3>Add new book</h3>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Title"
+            required
+          />
+          <input
+            type="text"
+            name="author"
+            id="author"
+            placeholder="Author"
+            required
+          />
+          <input
+            type="number"
+            name="pages"
+            id="pages"
+            placeholder="Pages"
+            required
+          />
+          <div class="custom-select">
+            <select name="status" id="status">
+              <option value="currently-reading">Currently Reading</option>
+              <option value="completed">Completed</option>
+              <option value="on-hold">On Hold</option>
+              <option value="dropped">Dropped</option>
+              <option value="plan-to-read">Plan to Read</option>
+            </select>
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

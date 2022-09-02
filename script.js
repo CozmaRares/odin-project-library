@@ -99,3 +99,7 @@ function displayBooksByStatus(status, statusClass) {
 function edit(bookID, bookStatus) {
   console.log(books[bookStatus].find(({ id }) => id === bookID));
 }
+
+function toggleOverlay() {
+  document.querySelector(".overlay").classList.toggle("active");
+}

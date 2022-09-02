@@ -19,6 +19,25 @@
   --plan-to-read: gray;
   --status-color: black;
 }
+
+button,
+input,
+select {
+  border: none;
+  outline: none;
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+
+input[type="text"],
+input[type="number"] {
+  cursor: text;
+}
+
 .currently-reading {
   --status-color: var(--currently-reading);
 }
@@ -158,17 +177,20 @@ div.pages {
   margin-left: -2px;
 }
 
-.plus svg {
-  height: 2em;
+.plus {
   position: fixed;
   bottom: 3rem;
   right: 2%;
+}
+
+.plus svg {
+  height: 2rem;
   cursor: pointer;
   transition: transform 300ms ease-in-out;
 }
 
-.plus svg:hover {
-  transform: rotate(405deg);
+.plus:hover svg {
+  transform: rotate(360deg);
 }
 
 footer {
@@ -200,4 +222,128 @@ footer a svg {
 
 footer a:hover svg {
   transform: rotateX(360deg) rotateY(360deg) scale(1.2);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #51515173;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease-in-out;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 300px;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 20px;
+  background-color: var(--bg);
+  transition: transform 300ms ease-in-out;
+}
+
+.overlay.active .modal {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal input {
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+}
+.modal button[type="submit"] {
+  outline: 1px solid black;
+
+  width: 60%;
+  padding: 1rem 0;
+  border-radius: 5px;
+}
+
+.modal button[type="submit"]:hover {
+  background-color: black;
+  color: white;
+}
+
+/* https://codepen.io/silverdrop/pen/OJJREa */
+.custom-select {
+  --border-radius: 20px;
+
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.custom-select select {
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-size: inherit;
+  padding: 20px;
+  padding-right: 2.5em;
+  border-radius: var(--border-radius);
+  text-overflow: "";
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.custom-select::before,
+.custom-select::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-select::after {
+  content: "\25BC";
+  height: 1em;
+  font-size: 0.625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -0.5em;
+}
+
+.custom-select::before {
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.custom-select select[disabled] {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.custom-select select[disabled]::after {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.custom-select::before {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.custom-select::after {
+  color: rgba(0, 0, 0, 0.4);
 }
