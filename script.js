@@ -112,6 +112,8 @@ function openEditModal(bookID, bookStatus) {
     removeBook(bookID, bookStatus);
     addBook(event);
   };
+  document.querySelector(".overlay form h3").innerText = "Edit book";
+
   document.getElementById("delete-btn").style.display = "block";
   document.getElementById("delete-btn").onclick = () => {
     removeBook(bookID, bookStatus);
@@ -124,6 +126,7 @@ function openEditModal(bookID, bookStatus) {
 function openAddModal() {
   document.querySelector(".overlay form").onsubmit = addBook;
   document.getElementById("delete-btn").style.display = "none";
+  document.querySelector(".overlay form h3").innerText = "Add a new book";
 
   toggleOverlay();
 }
