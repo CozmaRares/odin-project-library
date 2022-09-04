@@ -1,5 +1,6 @@
 let books = {},
-  maxID;
+  maxID,
+  sortBy = "title";
 
 function loadBooks(booksData) {
   booksData.forEach(book => {
@@ -39,17 +40,15 @@ function filterBooks(headerLI) {
   displayBooksByStatus(status, statusClass);
 }
 
+const initialGridHTML = document.querySelector(".grid").innerHTML;
+
 function refreshGrid() {
-  document.querySelector(".grid").innerHTML = `
-    <div class="line"></div>
-    <div class="index">#</div>
-    <div class="border-l">Title</div>
-    <div class="border-l">Author</div>
-    <div class="pages border-l">Pages</div>
-  `;
+  document.querySelector(".grid").innerHTML = initialGridHTML;
 }
 
 function fillGrid(booksArr, status, statusClass, idx) {
+  booksArr = sortBooks(booksArr);
+
   const grid = document.querySelector(".grid");
 
   booksArr.forEach(({ id, title, author, pages }) => {
@@ -149,8 +148,7 @@ function addBook(event) {
 }
 
 function closeOverlay() {
-  // refresh grid
-  document.querySelector("header li.selected").click();
+  refreshList();
 
   toggleOverlay();
 
@@ -165,4 +163,27 @@ function removeBook(bookID, bookStatus) {
   books[bookStatus] = books[bookStatus].filter(book => {
     return book.id !== bookID;
   });
+}
+
+function refreshList() {
+  document.querySelector("header li.selected").click();
+}
+
+function sortBooks(bookArr) {
+  return [...bookArr].sort((book1, book2) => {
+    const prop1 = book1[sortBy].toLowerCase(),
+      prop2 = book2[sortBy].toLowerCase();
+
+    if (prop1 < prop2) return -1;
+
+    if (prop1 > prop2) return 1;
+
+    return 0;
+  });
+}
+
+function setSortProperty(prop) {
+  console.log(prop);
+  sortBy = prop.toLowerCase();
+  refreshList();
 }

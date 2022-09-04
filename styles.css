@@ -112,7 +112,7 @@ main {
 }
 
 .grid > div:not(.line) {
-  border-bottom: 1px solid gray;
+  border-bottom: 2px solid gray;
 }
 
 .grid > div:not(.line, .index) {
@@ -172,9 +172,21 @@ div.pages {
   pointer-events: initial;
 }
 
-.border-l {
+.header-btn {
   border-left: 2px solid gray;
   margin-left: -2px;
+  cursor: pointer;
+}
+
+.header-btn:hover {
+  animation: pulse 500ms;
+  box-shadow: 0 0 0 1rem #ffffff00;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 black;
+  }
 }
 
 .plus {

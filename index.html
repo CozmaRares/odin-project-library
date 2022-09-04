@@ -25,9 +25,11 @@
       <div class="grid">
         <div class="line"></div>
         <div class="index">#</div>
-        <div class="border-l">Title</div>
-        <div class="border-l">Author</div>
-        <div class="pages border-l">Pages</div>
+        <div onclick="setSortProperty('title',)" class="header-btn">Title</div>
+        <div onclick="setSortProperty('author')" class="header-btn">Author</div>
+        <div onclick="setSortProperty('pages')" class="pages header-btn">
+          Pages
+        </div>
       </div>
       <div class="plus" onclick="openAddModal()">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -68,7 +70,7 @@
           </div>
         </div>
         <form>
-          <h3>Add new book</h3>
+          <h3>Add a new book</h3>
           <input
             type="text"
             name="title"
